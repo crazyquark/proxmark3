@@ -412,7 +412,7 @@ static int bitparse_find_section(int bitstream_version, char section_name, unsig
 void FpgaDownloadAndGo(int bitstream_version)
 {
 	z_stream compressed_fpga_stream;
-	uint8_t output_buffer[OUTPUT_BUFFER_LEN] = {0x00};
+	static uint8_t output_buffer[OUTPUT_BUFFER_LEN] = {0x00};
 
 	// check whether or not the bitstream is already loaded
 	if (downloaded_bitstream == bitstream_version) {
